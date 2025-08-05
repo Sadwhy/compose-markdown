@@ -54,7 +54,7 @@ dependencies {
     // TODO: Change it after migrating markwon project
     implementation "com.github.jeziellago:Markwon:58aa5aba6a"
 
-    final def coil_version = "3.0.4"
+    final def coil_version = "3.2.0"
 
     api("io.coil-kt.coil3:coil:$coil_version")
     api("io.coil-kt.coil3:coil-network-okhttp:$coil_version")
