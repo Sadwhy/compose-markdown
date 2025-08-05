@@ -61,7 +61,7 @@ dependencies {
     api("io.coil-kt.coil3:coil-gif:$coil_version")
 
     // Jetpack Compose
-    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui:1.6.6"
     implementation "androidx.compose.material3:material3:1.2.1"
 }
 
