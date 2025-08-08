@@ -16,5 +16,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "Compose Markdown"
-include ':sample'
 include ':markdowntext'
