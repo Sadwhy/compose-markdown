@@ -54,10 +54,10 @@ dependencies {
 
     implementation "com.github.jeziellago:Markwon:58aa5aba6a"
 
-    api platform('io.coil-kt.coil3:coil-bom:3.2.0')
-    api 'io.coil-kt.coil3:coil'
-    api 'io.coil-kt.coil3:coil-network-okhttp'
-    api 'io.coil-kt.coil3:coil-gif'
+    final def coil_version = "3.2.0"
+    api("io.coil-kt.coil3:coil:$coil_version")
+    api("io.coil-kt.coil3:coil-network-okhttp:$coil_version")
+    api("io.coil-kt.coil3:coil-gif:$coil_version")
 
     implementation platform('androidx.compose:compose-bom:2025.06.00')
     implementation 'androidx.compose.ui:ui'
@@ -66,9 +66,6 @@ dependencies {
 
 afterEvaluate {
     publishing {
-        repositories {
-            // Define your maven repositories here, e.g., mavenLocal()
-        }
         publications {
             release(MavenPublication) {
                 from components.release
