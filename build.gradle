@@ -1,15 +1,22 @@
 buildscript {
-    ext.compose_version = "1.6.6"
-    ext.library_version = "0.5.0"
-    ext.kotlin_version = "2.0.21"
+    ext {
+        compose_version = "1.6.6"
+        library_version = "0.5.0"
+        kotlin_version = "2.0.21"
+        agp_version = "8.7.3"
+    }
+
     repositories {
         google()
         mavenCentral()
         mavenLocal()
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath "com.android.tools.build:gradle:$agp_version"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin-compose:$kotlin_version"
     }
 }
 
