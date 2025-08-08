@@ -6,14 +6,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion 34
-    buildToolsVersion "34.0.0"
     namespace 'dev.jeziellago.compose.markdown'
+    compileSdkVersion 34
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 34
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -24,17 +21,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    buildFeatures {
-        compose true
-    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
+
     kotlinOptions {
         jvmTarget = '17'
     }
-    composeCompiler {
+
+    buildFeatures {
+        compose true
+    }
+    
+    composeOptions {
         reportsDestination = layout.buildDirectory.dir("compose_compiler")
     }
 }
@@ -44,26 +45,25 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.0'
 
     final def markwon_version = '4.6.2'
-
     implementation "io.noties.markwon:core:$markwon_version"
     implementation "io.noties.markwon:ext-strikethrough:$markwon_version"
     implementation "io.noties.markwon:ext-tables:$markwon_version"
     implementation "io.noties.markwon:html:$markwon_version"
     implementation "io.noties.markwon:linkify:$markwon_version"
     implementation "io.noties.markwon:ext-tasklist:$markwon_version"
-
-    // TODO: Change it after migrating markwon project
     implementation "com.github.jeziellago:Markwon:58aa5aba6a"
 
     final def coil_version = "3.2.0"
-
-    api("io.coil-kt.coil3:coil:$coil_version")
+    api("io.coil-kt.coil3:coil-compose:$coil_version")
     api("io.coil-kt.coil3:coil-network-okhttp:$coil_version")
     api("io.coil-kt.coil3:coil-gif:$coil_version")
 
-    // Jetpack Compose
-    implementation "androidx.compose.ui:ui:1.6.6"
-    implementation "androidx.compose.material3:material3:1.2.1"
+    implementation(platform("androidx.compose:compose-bom:$compose_bom_version"))
+
+    implementation "androidx.compose.ui:ui"
+    implementation "androidx.compose.ui:ui-tooling-preview"
+    implementation "androidx.compose.material3:material3"
+    debugImplementation "androidx.compose.ui:ui-tooling"
 }
 
 afterEvaluate {
