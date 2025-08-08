@@ -54,7 +54,7 @@ dependencies {
     implementation "com.github.jeziellago:Markwon:58aa5aba6a"
 
     final def coil_version = "3.2.0"
-    api("io.coil-kt.coil3:coil-compose:$coil_version")
+    api("io.coil-kt.coil3:coil:$coil_version")
     api("io.coil-kt.coil3:coil-network-okhttp:$coil_version")
     api("io.coil-kt.coil3:coil-gif:$coil_version")
 
